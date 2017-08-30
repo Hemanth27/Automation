@@ -6,7 +6,10 @@ import java.util.Properties;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
+import pageobject.AdminPageFlow;
+import pageobject.LoginPage;
 import resources.BaseClass;
 
 public class BaseTest extends BaseClass{
@@ -20,6 +23,11 @@ public class BaseTest extends BaseClass{
 		String urlbrowser=prop.getProperty("url");
 		driver=initializeBrowser();
 		driver.get(urlbrowser);
+		
+		LoginPage login= new LoginPage(driver);
+		login.getusername().sendKeys(prop.getProperty("username"));;
+		login.getpassword().sendKeys(prop.getProperty("password"));
+		login.getsigninbtn().click();
 	}
 	
 	

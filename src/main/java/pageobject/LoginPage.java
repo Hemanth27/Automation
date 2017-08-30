@@ -12,6 +12,9 @@ public class LoginPage {
  By pwd=By.cssSelector("input[id=txtPassword]");
  By signinbtn=By.cssSelector("#btnLogin");
  
+ By logoutmenu=By.cssSelector("#user-dropdown");
+ By logout = By.xpath(".//*[@id='user_menu']/li[4]/a");
+ 
  public LoginPage(WebDriver driver)
  {
 	 PageFactory.initElements(driver, this);
@@ -31,6 +34,16 @@ public class LoginPage {
  public WebElement getsigninbtn()
  {
 	 return driver.findElement(signinbtn);
+ }
+ 
+ public WebElement getlogoutmenu()
+ {
+	 return driver.findElement(logoutmenu);
+ }
+ 
+ public WebElement getlogout()
+ {
+	 return driver .findElement(logout);
  }
 
 }
